@@ -958,7 +958,8 @@ static void wpa_supplicant_ctrl_iface_send(struct wpa_supplicant *wpa_s,
 		msg.msg_namelen = dst->addrlen;
 		wpas_ctrl_sock_debug("ctrl_sock-sendmsg", sock, buf, len);
 		if (sendmsg(sock, &msg, MSG_DONTWAIT) >= 0) {
-			wpa_printf(MSG_DEBUG, "CTRL_IFACE monitor sent successfully to %s",
+			wpa_printf(MSG_MSGDUMP,
+				   "CTRL_IFACE monitor sent successfully to %s",
 				   addr_txt);
 			dst->errors = 0;
 			continue;
